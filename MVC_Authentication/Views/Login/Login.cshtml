@@ -1,0 +1,28 @@
+﻿@model MVC_Authentication.Models.LoginUser
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(Model => Model.UserName)
+    @Html.TextBoxFor(Model => Model.UserName)
+    @Html.ValidationMessageFor(Model => Model.UserName)
+    <br>
+    @Html.LabelFor(Model => Model.Password)
+    @Html.PasswordFor(Model => Model.Password)
+    @Html.ValidationMessageFor(Model => Model.Password)
+    <br>
+
+    if (ViewBag.IsInvalidCredentials)
+    {
+        @Html.Label("inv", "Invalid UserName or Password");
+    }
+    <br>
+    <input type="submit" value="Login" />
+}
+
+
